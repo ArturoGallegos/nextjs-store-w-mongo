@@ -1,16 +1,18 @@
+import ProductsList from 'components/Products/ProductLists/ProductLists';
+import { useEffect, useState } from 'react';
+import products from 'store/actions/products';
 import StoreLayout from '../layout/StoreLayout';
-import Img from './../components/Image/Image';
 
 export default function Home() {
+  const [productsData, setProductsData] = useState([]);
+
+  useEffect(() => {
+    products.getProducts().then((data) => setProductsData(data));
+  }, []);
+
   return (
     <StoreLayout title='Home page'>
-      <div>
-        <Img src='/pepsi.jpg' />
-        <Img src='/pepsi.jpg' />
-        <Img src='/pepsi.jpg' />
-        <Img src='/pepsi.jpg' />
-        <Img src='/pepsi1.jpg' />
-      </div>
+      <ProductsList products={productsData} />
     </StoreLayout>
   );
 }

@@ -7,9 +7,10 @@ type PropsType = {
   width?: number;
   height?: number;
   alt?: string;
+  quality?: number
 };
 
-const Img: React.FC<PropsType> = ({ src, width = 100, height = 100, alt = 'product' }: PropsType) => {
+const Img: React.FC<PropsType> = ({ src, width = 100, height = 100, alt = 'product', quality = 75 }: PropsType) => {
   const [image, setImage] = useState<string | StaticImageData>(src);
 
   const handleError = () => {
@@ -23,6 +24,8 @@ const Img: React.FC<PropsType> = ({ src, width = 100, height = 100, alt = 'produ
       height={height}
       alt={alt}
       onError={handleError}
+      style={{objectFit: 'cover'}}
+      quality={quality}
     />
   );
 };
