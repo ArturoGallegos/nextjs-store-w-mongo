@@ -12,7 +12,6 @@ type PropsType = {
 
 const ProductsPage: React.FC<PropsType> = ({defaultData}) => {
   const { data } = useProducts({defaultData});
-  console.log({data})
 
   return (
     <LayoutStore title='Productos' description='Los principales productos'>

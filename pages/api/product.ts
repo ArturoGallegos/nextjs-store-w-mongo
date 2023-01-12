@@ -77,8 +77,6 @@ const productApi = async (req: NextApiRequest, res: NextApiResponse) => {
     const remove = await Product.deleteOne({_id: id}, { });
     if(!remove.deletedCount) return res.status(200).json({ok: false, message: 'Product not found'});
 
-    console.log({remove});
-
     return res.status(200).json({ok: true, message: 'Product was removed'});
   }
   return res.status(404).json({ok: false, message: 'Invalid method'});
