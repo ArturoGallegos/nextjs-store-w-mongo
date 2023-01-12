@@ -1,7 +1,7 @@
-import axios from 'axios';
+import AxiosAPI from 'services/AxiosAPI';
 import { SWRConfig } from 'swr';
 
-const fetcher = (url: string) => axios.get(`http://localhost:3000/api${url}`).then(res => res.data);
+const fetcher = (url: string) => AxiosAPI.get(url).then(res => res.data);
 
 const SwrConfig: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return (

@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+mongoose.set('strictQuery', false);
+
 let dbIsConnected = 0;
 const connect = async () => {
   if(dbIsConnected === 1) return;
@@ -21,10 +23,11 @@ const connect = async () => {
 }
 
 const disconnect = () => {
-  if(dbIsConnected === 0 || process.env.NODE_ENV === 'development') return;
+  return;
+  // if(dbIsConnected === 0 || process.env.NODE_ENV === 'development') return;
 
-  mongoose.disconnect();
-  dbIsConnected = 0;
+  // mongoose.disconnect();
+  // dbIsConnected = 0;
 }
 
 const db = {

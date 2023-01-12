@@ -1,9 +1,10 @@
 import db from 'database/db';
 import Product from 'database/models/Product';
+import products from 'fake-data/products';
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const seedApi = async (req: NextApiRequest, res: NextApiResponse) => {
+const seedApi = async (_: NextApiRequest, res: NextApiResponse) => {
   db.connect()
 
   await Product.deleteMany()
