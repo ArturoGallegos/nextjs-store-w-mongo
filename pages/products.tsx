@@ -5,16 +5,19 @@ import LayoutStore from './../layout/StoreLayout';
 
 type PropsType = {
   defaultData: {
-    ok: boolean,
-    products: Product[]
-  }
-}
+    ok: boolean;
+    products: Product[];
+  };
+};
 
-const ProductsPage: React.FC<PropsType> = ({defaultData}) => {
-  const { data } = useProducts({defaultData});
+const ProductsPage: React.FC<PropsType> = ({ defaultData }) => {
+  const { data } = useProducts({ defaultData });
 
   return (
-    <LayoutStore title='Productos' description='Los principales productos'>
+    <LayoutStore
+      title='Productos'
+      description='Los principales productos'
+    >
       {data?.map((product) => (
         <div key={product._id}>{product.name}</div>
       ))}
@@ -22,13 +25,13 @@ const ProductsPage: React.FC<PropsType> = ({defaultData}) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async() => {
+export const getStaticProps: GetStaticProps = async () => {
   const data = await getProducts();
   return {
     props: {
-      defaultData: data.ok ? data : {}
+      defaultData: data.ok ? data : {},
     },
-  }
-}
+  };
+};
 
 export default ProductsPage;
