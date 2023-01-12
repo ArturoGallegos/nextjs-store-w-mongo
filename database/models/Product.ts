@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export const productGender = ['men', 'women', 'kid', 'unisex'];
+export const productGender = ['man', 'woman', 'kid', 'unisex'];
 
 const ProductSchema = new mongoose.Schema({
   name: {type: String, require: true, trim: true},

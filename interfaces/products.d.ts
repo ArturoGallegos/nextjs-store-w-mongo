@@ -1,5 +1,5 @@
 interface Product {
-  id: string
+  _id: string
   code?: string
   name: string
   slug?: string
