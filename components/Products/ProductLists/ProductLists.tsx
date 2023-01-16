@@ -3,6 +3,7 @@ import FavoriteIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShareIcon from '@mui/icons-material/Share';
 import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton } from '@mui/material';
+import { Product } from 'interfaces/products';
 import React from 'react';
 import styles from './ProductLists.module.sass';
 

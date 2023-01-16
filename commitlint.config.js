@@ -1,8 +1,7 @@
 module.exports = {
   parserPreset: {
     parserOpts: {
-      noteKeywords: ['BREAKING CHANGE', 'REFERENCE', 'Reference', 'REFERENCES', 'References'],
-      // issuePrefixes: ['References #[FIK-']
+      noteKeywords: ['BREAKING CHANGE', 'REFERENCE', 'REFERENCES'],
     },
   },
   rules: {
@@ -16,6 +15,5 @@ module.exports = {
     'body-max-line-length': [2, 'always', 72],
     'footer-leading-blank': [2, 'always'],
     'footer-max-line-length': [2, 'always', 'Infinity'],
-    // 'references-empty': [2, 'never'],
   },
 };

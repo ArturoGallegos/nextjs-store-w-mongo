@@ -1,3 +1,4 @@
+import { Product } from 'interfaces/products';
 import { GetStaticProps } from 'next';
 import React from 'react';
 import useProducts, { getProducts } from 'services/useProducts';
