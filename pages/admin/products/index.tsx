@@ -17,6 +17,13 @@ const ProductsPage: React.FC<PropsType> = ({}: PropsType) => {
 
   return (
     <>
+      <Button
+        variant='contained'
+        color='primary'
+        href='/admin/product/create'
+      >
+        Add product
+      </Button>
       <table>
         <thead>
           <tr>

@@ -1,4 +1,4 @@
-import { productSizes } from 'services/useProduct';
+import { productGender, productSizes } from 'database/models/Product';
 
 interface Product {
   _id: string;
@@ -9,7 +9,7 @@ interface Product {
   description?: string;
   image?: string;
   images?: string[];
-  available?: boolean;
+  active?: boolean;
   stock?: number;
   sizes: typeof productSizes;
   categories?: string[];

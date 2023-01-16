@@ -5,14 +5,12 @@ import { isValidObjectId } from 'mongoose';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const createSlug = ({ code, slug, name }: { code?: string; slug?: string; name: string }) =>
-  slug
-    ? slug
-    : ((code || 0) + '-' + name)
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replaceAll(' ', '-')
-        .replace('--', '-');
+  (slug || (code || 0) + '-' + name)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replaceAll(' ', '-')
+    .replace('--', '-');
 
 const productApi = async (req: NextApiRequest, res: NextApiResponse) => {
   db.connect();
@@ -73,7 +71,9 @@ const productApi = async (req: NextApiRequest, res: NextApiResponse) => {
     const validateProduct = await Product.findById(id);
     if (!validateProduct) return res.status(404).json({ ok: false, message: 'Product not found' });
 
-    const product = await Product.findByIdAndUpdate(id, data, { new: true });
+    const slug = createSlug({ code: data.code, slug: data.slug, name: data.name });
+
+    const product = await Product.findByIdAndUpdate(id, { ...data, slug }, { new: true });
 
     return res.status(200).json({ ok: true, product });
   }

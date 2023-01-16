@@ -5,11 +5,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
+import { productGender, productSizes } from 'database/models/Product';
 import { ProductCreate } from 'interfaces/products';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import useProduct, { productGender, productSizes } from 'services/useProduct';
+import useProduct from 'services/useProduct';
 type PropsType = {
   id?: string;
   product?: ProductCreate;
@@ -32,7 +33,6 @@ const ProductForm: React.FC<PropsType> = ({ id, product }: PropsType) => {
 
   return (
     <>
-      <code>{product ? JSON.stringify(product, null, 4) : 'empty'}</code>
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{ padding: 20 }}
@@ -136,10 +136,10 @@ const ProductForm: React.FC<PropsType> = ({ id, product }: PropsType) => {
             item
             md={6}
           >
-            Available
+            Active
             <Switch
-              defaultChecked={product?.available ?? true}
-              {...register('available')}
+              defaultChecked={product?.active ?? true}
+              {...register('active')}
             />
           </Grid>
           <Grid

@@ -2,9 +2,6 @@ import { Product } from 'interfaces/products';
 import AxiosAPI from 'services/AxiosAPI';
 import useSWR from 'swr';
 
-export const productSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
-export const productGender = ['men', 'women', 'kid', 'unisex'];
-
 const useProduct = (data?: { id?: string }) => {
   const { data: product, mutate } = useSWR(data?.id ? `` : null);
 
